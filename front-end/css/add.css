@@ -1,0 +1,232 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #111;
+  color: #f0f0f0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+.panel {
+  max-width: 640px;
+  margin: 2rem auto;
+  padding: 0 1rem 2rem;
+}
+
+.panel-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 0.5px solid rgba(255,255,255,0.1);
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: .35rem;
+}
+
+.panel-subtitle {
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: .45rem;
+}
+
+.form-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #f0f0f0;
+  background: #1e1e1e;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  font-family: inherit;
+}
+
+.form-input:focus {
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.05);
+}
+
+.form-input::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #f0f0f0;
+  background: #1e1e1e;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.form-textarea:focus {
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.05);
+}
+
+.form-textarea::placeholder {
+  color: rgba(255,255,255,0.25);
+}
+
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-btn {
+  flex: 1;
+  height: 38px;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  background: #1e1e1e;
+  color: rgba(255,255,255,0.5);
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
+}
+
+.toggle-btn:hover {
+  background: #2a2a2a;
+}
+
+.toggle-btn.active-yes {
+  background: #1a2e14;
+  border-color: #639922;
+  color: #a8d96a;
+}
+
+.toggle-btn.active-no {
+  background: #2e1414;
+  border-color: #E24B4A;
+  color: #f08080;
+}
+
+.divider {
+  height: 0.5px;
+  background: rgba(255,255,255,0.08);
+  margin: 1.75rem 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.75rem;
+}
+
+.btn-primary {
+  flex: 1;
+  height: 40px;
+  background: #fff;
+  color: #111;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity .15s;
+}
+
+.btn-primary:hover {
+  opacity: .85;
+}
+
+.btn-primary:active {
+  transform: scale(.98);
+}
+
+.btn-secondary {
+  height: 40px;
+  padding: 0 20px;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  border: 0.5px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.toast {
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #fff;
+  color: #111;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  opacity: 0;
+  transition: all .3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 500px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .actions { flex-direction: column; }
+  .btn-secondary { width: 100%; }
+}
