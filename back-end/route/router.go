@@ -20,11 +20,12 @@ func SetupRouter() {
 	fs := http.FileServer(http.Dir("../front-end"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", handlers.MainPage)
-	http.HandleFunc("/watch/film/", handlers.WatchFilmPage)
-	http.HandleFunc("/cinema", handlers.CinemaPage)
-	http.HandleFunc("/api/films", handlers.GetFilms)
+	http.HandleFunc("/watch/film/", handlers.WatchFilmPage) //плеер
+	http.HandleFunc("/cinema", handlers.CinemaPage)         //кинотеатр
+	http.HandleFunc("/api/films", handlers.GetFilms)        //список всех фильмов
 
 	http.HandleFunc("/admin", handlers.AdminPage)
 	http.HandleFunc("/add", handlers.AddPage)
-	http.HandleFunc("/api/add", handlers.AddFilm)
+	http.HandleFunc("/api/add", handlers.AddFilm) //добавить кино
+	// /film/:id/:seria
 }

@@ -28,6 +28,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      volumes:
+        - ./front-end:/front-end
 
 volumes:
   pgdata:
