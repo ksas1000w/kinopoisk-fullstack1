@@ -25,12 +25,12 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 	defer file.Close()
 
 	fileType := r.URL.Query().Get("type")
-	if fileType == "" { // ✅ сравниваем fileType, а не file
+	if fileType == "" {
 		http.Error(w, "не указан тип файла", http.StatusBadRequest)
 		return
 	}
 
-	uploadDir := fmt.Sprintf("/upload/%s", fileType) // ✅ аргумент вне кавычек
+	uploadDir := fmt.Sprintf("/upload/%s", fileType)
 	os.Mkdir(uploadDir, os.ModePerm)
 
 	filename := filepath.Base(handler.Filename)
@@ -49,7 +49,7 @@ func UploadFile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	publicPath := fmt.Sprintf("/upload/%s/%s", fileType, filename) // ✅ аргументы вне кавычек
+	publicPath := fmt.Sprintf("/upload/%s/%s", fileType, filename)
 	w.Header().Set("Content-Type", "application/json")
 	fmt.Fprintf(w, `{"path":"%s"}`, publicPath)
 }
